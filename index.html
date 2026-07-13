@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Satvik Bhasin — AI/ML Professional Portfolio</title>
+<style>
+  :root {
+    --ink: #1a1a2e;
+    --muted: #5a5a6e;
+    --accent: #4f5eff;
+    --accent-soft: #eef0ff;
+    --bg: #ffffff;
+    --line: #e6e6ef;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.6;
+  }
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  header.hero {
+    padding: 72px 0 48px;
+    border-bottom: 1px solid var(--line);
+  }
+  header.hero .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.8rem;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  header.hero h1 {
+    font-size: 2.4rem;
+    margin: 0 0 8px;
+    letter-spacing: -0.02em;
+  }
+  header.hero .role {
+    font-size: 1.15rem;
+    color: var(--muted);
+    margin-bottom: 24px;
+  }
+  header.hero .links a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+    margin-right: 20px;
+  }
+  header.hero .links a:hover { text-decoration: underline; }
+
+  section {
+    padding: 48px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  section:last-of-type { border-bottom: none; }
+  section h2 {
+    font-size: 1.5rem;
+    margin: 0 0 20px;
+    letter-spacing: -0.01em;
+  }
+  section p { color: #2b2b3d; }
+
+  .value-prop {
+    background: var(--accent-soft);
+    border-left: 4px solid var(--accent);
+    padding: 24px 28px;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--ink);
+  }
+
+  .artifact-card {
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .artifact-visual {
+    background: #f4f4fa;
+    padding: 32px;
+    text-align: center;
+  }
+  .artifact-visual img {
+    max-width: 100%;
+    border-radius: 6px;
+    border: 1px solid var(--line);
+  }
+  .artifact-visual .placeholder {
+    color: var(--muted);
+    font-size: 0.95rem;
+    padding: 40px 20px;
+    border: 2px dashed #c9c9dd;
+    border-radius: 8px;
+  }
+  .artifact-body { padding: 28px; }
+  .artifact-body h3 {
+    margin: 0 0 4px;
+    font-size: 1.3rem;
+  }
+  .artifact-body .meta-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  .field {
+    margin-bottom: 18px;
+  }
+  .field .label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .field .content { color: #2b2b3d; }
+  .field .content ul { margin: 6px 0 0; padding-left: 20px; }
+  .artifact-vp {
+    background: var(--accent-soft);
+    border-radius: 6px;
+    padding: 16px 18px;
+    font-style: italic;
+    margin-top: 4px;
+  }
+  .tools-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .tools-list span {
+    background: #f4f4fa;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 4px 12px;
+    font-size: 0.85rem;
+    color: var(--ink);
+  }
+  .artifact-links a {
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .artifact-links a:hover { text-decoration: underline; }
+
+  .coming-soon {
+    color: var(--muted);
+    font-size: 0.95rem;
+    border: 1px dashed var(--line);
+    border-radius: 8px;
+    padding: 18px 20px;
+  }
+
+  footer {
+    padding: 40px 0 60px;
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="eyebrow">AI/ML Professional Portfolio</div>
+    <h1>Satvik Bhasin</h1>
+    <div class="role">Senior Platform Engineer &middot; Machine Learning Fundamentals, AIML-500 &middot; Indiana Wesleyan University</div>
+    <div class="links">
+      <a href="mailto:satvikbhasin.22.sb@gmail.com">Email</a>
+      <a href="#artifacts">Artifacts</a>
+    </div>
+  </header>
+
+  <section id="bio">
+    <h2>About Me</h2>
+    <p>
+      I'm a senior platform engineer working in large-scale distributed systems, where I use AI and machine learning
+      tools on a regular basis to solve real infrastructure and reliability problems. I'm currently pursuing a
+      Master's in Computer Science at Indiana Wesleyan University, focusing on Machine Learning Fundamentals, to
+      build a more formal, structured understanding of the theory underneath tools I already use daily in
+      production.
+    </p>
+    <p>
+      My background is in engineering execution: shipping features, debugging systems under pressure, and reasoning
+      from symptoms to root cause quickly. What I'm building here is the complementary half, a working knowledge of
+      how AI and ML actually evolved, what's happening under the hood of the tools I rely on, and how to think about
+      leading AI adoption within an organization, not just using AI as an individual contributor.
+    </p>
+  </section>
+
+  <section id="value-proposition">
+    <h2>Value Proposition</h2>
+    <div class="value-prop">
+      As a senior platform engineer with hands-on, daily experience applying AI/ML tools to complex production
+      systems, I help technical teams separate genuine capability from hype, translating fast-moving AI research
+      into practical, reliable engineering decisions.
+    </div>
+  </section>
+
+  <section id="artifacts">
+    <h2>Artifacts</h2>
+
+    <div class="artifact-card">
+      <div class="artifact-visual">
+        <img src="timeline-screenshot.png" alt="AI and ML history timeline infographic covering Turing's Question, the Dartmouth Conference, the First AI Winter, the Expert Systems Boom, and Generative AI Mainstream">
+      </div>
+      <div class="artifact-body">
+        <div class="meta-tag">Workshop 1 &middot; AIML-500</div>
+        <h3>AI & ML History Timeline</h3>
+
+        <div class="field">
+          <div class="label">Objective</div>
+          <div class="content">
+            To research and visualize key milestones in AI history from 1950 to the present, tracing the field's
+            founding, its funding collapse during the First AI Winter, its recovery through expert systems, and
+            its move into mainstream use through generative AI.
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="label">Process</div>
+          <div class="content">
+            I researched primary and credible secondary sources, including Our World in Data's history of AI, an
+            IEEE Computer Society overview of AI's evolution, and the assigned course documentary on AI's history,
+            to build a chronological account covering ten major milestones from Turing's 1950 paper through the
+            generative AI boom of 2020&ndash;2022. From that research, I used Canva to generate a visual timeline,
+            then selected and refined five of the milestones (Turing's Question, the Dartmouth Conference, the
+            First AI Winter, the Expert Systems Boom, and the Generative AI Mainstream era) into the final
+            infographic shown here.
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="label">Tools and Technologies Used</div>
+          <div class="tools-list">
+            <span>Canva</span>
+            <span>Gemini (research assistance)</span>
+            <span>Our World in Data</span>
+            <span>IEEE Computer Society</span>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="label">Value Proposition (Artifact-Specific)</div>
+          <div class="artifact-vp">
+            This timeline gives technical and non-technical audiences alike a fast, visually grounded way to see
+            that AI's history isn't a straight line: it includes real funding collapses driven by overpromising,
+            not just steady progress.
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="label">Unique Value</div>
+          <div class="content">
+            Rather than treating AI history as a simple success story, this timeline puts the First AI Winter,
+            a period where AI funding was cut after the field failed to deliver on its own hype, alongside the
+            eventual recovery through expert systems and today's generative AI boom. That contrast is a useful
+            reference point for evaluating whether current AI momentum reflects durable progress or another
+            hype cycle.
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="label">Relevance</div>
+          <div class="content">
+            As someone who evaluates and integrates AI/ML tools professionally, understanding this history
+            directly informs how I assess new AI capabilities and communicate their limits to stakeholders who
+            weren't around for the earlier boom-and-bust cycles.
+          </div>
+        </div>
+
+        <div class="field artifact-links">
+          <div class="label">Link</div>
+          <div class="content"><a href="https://canva.link/5j186xxp4pyat9l" target="_blank" rel="noopener">View the timeline on Canva</a></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="height: 28px;"></div>
+
+    <div class="coming-soon">
+      Additional artifacts from AI Lab (Workshop 1) and future workshops will be added here as the course
+      progresses. This portfolio requires at least five artifacts by the end of the course.
+    </div>
+  </section>
+
+  <footer>
+    Portfolio built for AIML-500, Machine Learning Fundamentals &middot; Indiana Wesleyan University
+  </footer>
+
+</div>
+
+</body>
+</html>
