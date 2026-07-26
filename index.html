@@ -134,6 +134,65 @@
     font-style: italic;
     margin-top: 4px;
   }
+
+  .pull-quote {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--ink);
+    max-width: 44ch;
+    margin: 0 auto;
+    text-align: left;
+    line-height: 1.7;
+  }
+  .pull-quote .attrib {
+    display: block;
+    margin-top: 12px;
+    font-style: normal;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    font-weight: 600;
+  }
+
+  details.fulltext {
+    border-top: 1px solid var(--line);
+    margin-top: 22px;
+    padding-top: 18px;
+  }
+  details.fulltext summary {
+    cursor: pointer;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+    font-weight: 600;
+    list-style: none;
+  }
+  details.fulltext summary::-webkit-details-marker { display: none; }
+  details.fulltext summary::before { content: "\25B8\00a0"; }
+  details.fulltext[open] summary::before { content: "\25BE\00a0"; }
+  .doc { margin-top: 20px; color: #2b2b3d; }
+  .doc h4 {
+    font-size: 1rem;
+    margin: 24px 0 8px;
+    color: var(--ink);
+  }
+  .doc h4:first-child { margin-top: 0; }
+  .doc p { margin: 0 0 14px; }
+  .doc .byline {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+  }
+  .doc .refs {
+    font-size: 0.88rem;
+    color: var(--muted);
+    border-top: 1px solid var(--line);
+    padding-top: 14px;
+    margin-top: 22px;
+  }
+  .doc .refs a { color: var(--accent); word-break: break-word; }
   .tools-list {
     display: flex;
     flex-wrap: wrap;
@@ -292,7 +351,11 @@
 
     <div class="artifact-card">
       <div class="artifact-visual">
-        <div class="placeholder">Written report &middot; excerpt below, full report linked</div>
+        <div class="pull-quote">
+          &ldquo;Gmail doesn't need a neural network to catch spam, and Facebook can't recognize a face
+          without one.&rdquo;
+          <span class="attrib">From the report</span>
+        </div>
       </div>
       <div class="artifact-body">
         <div class="meta-tag">Workshop 2 &middot; AIML-500</div>
@@ -355,10 +418,103 @@
           </div>
         </div>
 
-        <div class="field artifact-links">
-          <div class="label">Link</div>
-          <div class="content">Full report: <em>2.3 Machine Learning vs Deep Learning.md</em> (Workshop 2, Assignment 2.3)</div>
-        </div>
+        <details class="fulltext" open>
+          <summary>Read the full report</summary>
+          <div class="doc">
+            <p class="byline">
+              Satvik Bhasin &middot; AIML-500: Machine Learning Fundamentals &middot; Workshop 2, Assignment 2.3
+            </p>
+
+            <h4>Introduction</h4>
+            <p>
+              Suppose you're Gmail, and you need to decide, for every one of the roughly 300 billion emails sent
+              each day, whether it belongs in the inbox or the spam folder. Now suppose instead you're Facebook,
+              and you need to recognize the same person's face across four million photos taken at different
+              angles, in different lighting, at different ages. Both are classification problems. Both get solved
+              with algorithms that learn from data. But the two systems Google and Facebook actually built to
+              solve them look almost nothing alike under the hood, and the reason why is the core distinction
+              this report walks through: machine learning versus deep learning.
+            </p>
+
+            <h4>Example 1: Email Spam Detection (Machine Learning: Logistic Regression)</h4>
+            <p>
+              Gmail's spam filter is a real-world machine learning system built on logistic regression, layered
+              with hundreds of hand-tuned rules (Sharma, 2021). Each rule captures a specific, human-identified
+              feature of spam, things like the presence of certain words, the sender's domain, or the density of
+              links in the body, and assigns it a statistical weight based on how strongly that feature correlates
+              with spam. Logistic regression then combines those weighted features into a single probability score
+              and tests it against a threshold: above the line, spam; below it, inbox.
+            </p>
+            <p>
+              Why is machine learning the right fit here? The features that separate spam from a real email are
+              mostly things a person can name outright: "contains a suspicious link," "sender domain doesn't match
+              the display name," "subject line in all caps." Once those features are defined, the relationship
+              between them and the spam label is close to linear, which is exactly what logistic regression is
+              built to model. It's also cheap: logistic regression trains fast, runs fast, and doesn't need a data
+              center's worth of GPUs to score an email in milliseconds at Gmail's scale.
+            </p>
+            <p>
+              Why wouldn't deep learning be the better call here? A deep neural network could technically be
+              pointed at this same problem, but it would be solving a harder version of it than necessary. Deep
+              learning earns its keep by discovering features nobody thought to define. That's the whole value
+              proposition. Spam already has well-understood, human-legible features, so a deep network's ability
+              to learn abstract representations from raw text is capability going unused. Worse, it would demand
+              far more labeled training data and compute to reach the same accuracy logistic regression already
+              gets cheaply, and the resulting model would be harder to interpret when Gmail's engineers need to
+              explain why a specific email got flagged.
+            </p>
+
+            <h4>Example 2: Facial Recognition (Deep Learning: Convolutional Neural Network)</h4>
+            <p>
+              Facebook's DeepFace system, introduced in 2014, tackles a different kind of problem: recognizing a
+              specific person's face across images taken at different angles, lighting conditions, and
+              expressions. DeepFace uses a nine-layer convolutional neural network with more than 120 million
+              connection weights, trained on roughly four million user-uploaded photos, and it reaches about
+              97.35% accuracy on a standard face-verification benchmark, close to human-level performance
+              ("DeepFace," n.d.).
+            </p>
+            <p>
+              Why is deep learning the right fit here? Nobody can hand-write a rule for "this is Satvik's face."
+              The features that distinguish one face from another, the exact curve of a jawline, the spacing
+              between eyes, how a smile shifts the geometry of a cheek, are too numerous, too subtle, and too
+              entangled with lighting and angle for a human to define manually. A CNN solves this by stacking
+              convolutional layers that progressively build up abstraction: early layers pick up edges and
+              textures, later layers combine those into shapes, and the deepest layers represent something closer
+              to "identity." That's the automatic feature extraction deep learning is built for, and it's the only
+              practical way to hit 97% accuracy on a problem this unstructured.
+            </p>
+            <p>
+              Why wouldn't machine learning be the better call here? A traditional ML model like logistic
+              regression or an SVM would need someone to first extract features by hand, things like eye spacing,
+              nose width, jaw angle, before the algorithm could even start learning. That preprocessing step is
+              exactly what makes facial recognition hard, and no fixed set of hand-engineered features holds up
+              well across the range of angles and lighting DeepFace has to handle. A shallow model tops out well
+              below CNN-level accuracy on this kind of raw, high-dimensional image data, because the problem's
+              structure genuinely requires more layers of abstraction than a shallow model has to offer.
+            </p>
+
+            <h4>Conclusion</h4>
+            <p>
+              The pattern holds across both examples: machine learning wins when the important features are
+              already knowable and few, and deep learning wins when the features themselves are the hard part and
+              the data is abundant enough to learn them. Gmail doesn't need a neural network to catch spam, and
+              Facebook can't recognize a face without one. Matching the tool to that distinction, instead of
+              defaulting to the more powerful-sounding option, is the actual skill this report is testing.
+            </p>
+
+            <div class="refs">
+              <strong>References</strong>
+              <p>
+                Sharma, N. (2021, October 5). <em>Spam detection with logistic regression</em>. Medium.
+                <a href="https://medium.com/data-science/spam-detection-with-logistic-regression-23e3709e522" target="_blank" rel="noopener">https://medium.com/data-science/spam-detection-with-logistic-regression-23e3709e522</a>
+              </p>
+              <p>
+                DeepFace. (n.d.). In <em>Wikipedia</em>. Retrieved July 15, 2026, from
+                <a href="https://en.wikipedia.org/wiki/DeepFace" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/DeepFace</a>
+              </p>
+            </div>
+          </div>
+        </details>
       </div>
     </div>
 
@@ -366,7 +522,11 @@
 
     <div class="artifact-card">
       <div class="artifact-visual">
-        <div class="placeholder">Written explainer &middot; full text below, discussion post linked</div>
+        <div class="pull-quote">
+          &ldquo;The clever part isn't in any single neuron. It's in letting a lot of dumb ones correct each
+          other until the whole thing turns out smart.&rdquo;
+          <span class="attrib">From the explanation</span>
+        </div>
       </div>
       <div class="artifact-body">
         <div class="meta-tag">Workshop 3 &middot; AIML-500</div>
@@ -429,10 +589,72 @@
           </div>
         </div>
 
-        <div class="field artifact-links">
-          <div class="label">Link</div>
-          <div class="content">Full explanation: <em>3.4 Discussion &mdash; Communicating for Learning (Neural Networks).md</em> (Workshop 3, Assignment 3.4)</div>
-        </div>
+        <details class="fulltext" open>
+          <summary>Read the full explanation</summary>
+          <div class="doc">
+            <p class="byline">
+              Satvik Bhasin &middot; AIML-500: Machine Learning Fundamentals &middot; Workshop 3, Assignment 3.4
+            </p>
+
+            <p>
+              Suppose you show a two-year-old a dog. "Dog," you say. The next day she points at a cat and shouts
+              "Dog!" You laugh and tell her, "No, that's a cat." A few hundred corrections later, she's got it.
+              Nobody handed her a rulebook that said "four legs plus whiskers plus a certain shape of ear equals
+              cat." She built that rulebook herself, one correction at a time.
+            </p>
+            <p>
+              That is the whole idea behind a neural network. So let's build one up from that toddler.
+            </p>
+            <p>
+              Start with a single tiny decision-maker. You feed it a couple of numbers, say the pointiness of the
+              ears and the loudness of the sound the animal makes, and it adds them up. Each clue gets its own
+              little weight that says how much that clue matters. If the total crosses some line, the
+              decision-maker says "cat." If not, it says "dog." That's all it does. One of these is called a
+              <em>neuron</em>, and on its own it is not very smart.
+            </p>
+            <p>
+              Now here's the move that changes everything. You stack a lot of these neurons together in layers.
+              The first layer looks at the raw clues. The next layer looks at what the first layer noticed. The
+              layer after that looks at what <em>that</em> layer noticed, and so on, each layer spotting something
+              a little more abstract than the one below it. Early layers catch edges and colors. Later layers
+              catch "pointy ear" or "wet nose." Wire enough of them together and the whole thing can recognize a
+              cat in a photo it has never seen before. Stacked up like this, it's a <em>neural network</em>,
+              called "neural" because it was loosely inspired by the way brain cells pass signals to each other.
+            </p>
+            <p>
+              But how does it learn those weights? The same way the toddler did. You show it a picture, it guesses
+              "dog," you tell it the real answer was "cat," and it nudges every weight a little in the direction
+              that would have gotten it closer. Do that across millions of examples and the weights slowly settle
+              into a set of clues that actually work. That nudging has a name. It's called <em>training</em>, and
+              the part that decides which way to nudge is really just some calculus asking, "Did that change make
+              the guess better or worse?"
+            </p>
+            <p>
+              One last piece and you have the real thing. If every neuron only ever added its numbers up, stacking
+              layers would buy you nothing, because a pile of additions is still just one big addition. So after a
+              neuron adds things up, it runs the result through a small function that bends the line. That bend is
+              what lets the network learn curvy, complicated patterns instead of only straight ones. The bend is
+              called an <em>activation function</em>, and it's the reason a deep stack of layers can learn things
+              a single neuron never could.
+            </p>
+            <p>
+              So that's a neural network. It's a stack of very simple decision-makers, each one weighing clues and
+              passing its verdict up to the next, learning its weights by being corrected over and over until the
+              guesses get good. The clever part isn't in any single neuron. It's in letting a lot of dumb ones
+              correct each other until the whole thing turns out smart.
+            </p>
+
+            <h4>Tools disclosure</h4>
+            <p>
+              I drafted and refined this explanation working with Claude (Anthropic's AI assistant). I used it the
+              way the lesson describes: I started from the concepts I wanted to land (weights, layers, training by
+              correction, activation functions), then iterated on prompts to strip out jargon, lead with a
+              familiar example before naming anything, and chunk the idea so each paragraph adds exactly one new
+              piece. The toddler framing, the second-person "you," and the deliberate build from one neuron up to
+              a full network are communication-for-learning strategies applied on purpose, not by accident.
+            </p>
+          </div>
+        </details>
       </div>
     </div>
 
