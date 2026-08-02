@@ -660,6 +660,143 @@
 
     <div style="height: 28px;"></div>
 
+    <div class="artifact-card">
+      <div class="artifact-visual">
+        <div class="pull-quote">
+          &ldquo;A leader who admits a system hasn't been checked for bias yet, and holds the launch until it
+          has, does more for trust than one who projects certainty and gets it wrong.&rdquo;
+          <span class="attrib">From the value statement</span>
+        </div>
+      </div>
+      <div class="artifact-body">
+        <div class="meta-tag">Workshop 4 &middot; AIML-500</div>
+        <h3>Navigating Human Bias in AI: A Leadership Value Statement</h3>
+
+        <div class="field">
+          <div class="label">Objective</div>
+          <div class="content">
+            To write a personal value statement and a set of field-specific strategies for navigating human
+            bias in AI systems as a leader, grounded in real decisions rather than general principles.
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="label">Process</div>
+          <div class="content">
+            I started from a concrete scenario in my own field, a PR-review recommender that quietly favors the
+            same few engineers because the training data reflects who historically got fast reviews, and used it
+            to define what bias actually looks like day to day on a platform team. From there I worked with
+            Claude to develop four strategies tied directly to how platform and ML-adoption work actually gets
+            done: auditing training data the way you'd audit a code dependency, building bias checks into the
+            pipeline instead of a one-time review, widening the review room before launch instead of after a
+            complaint, and being willing to say a system hasn't been verified yet even under pressure to ship.
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="label">Tools and Technologies Used</div>
+          <div class="tools-list">
+            <span>Claude (drafting &amp; iteration)</span>
+            <span>Fairness auditing concepts</span>
+            <span>Change leadership framing</span>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="label">Value Proposition (Artifact-Specific)</div>
+          <div class="artifact-vp">
+            This piece shows I can turn an abstract risk, bias in AI systems, into specific engineering and
+            leadership practices rather than stopping at "diverse teams are good" or "check for bias."
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="label">Unique Value</div>
+          <div class="content">
+            My first three artifacts cover research, technical analysis, and teaching. This one is the
+            leadership/ethics artifact: it argues that bias in AI is mostly a data and process problem hiding
+            behind a technical system, and that the fix looks like code review discipline and pipeline
+            automation more than it looks like a training seminar.
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="label">Relevance</div>
+          <div class="content">
+            As AI tools get integrated deeper into how my team works and what we ship, being able to name where
+            bias actually enters a system, and having a concrete practice for catching it before it reaches
+            users, is a direct extension of the platform reliability work I already do.
+          </div>
+        </div>
+
+        <details class="fulltext" open>
+          <summary>Read the full statement</summary>
+          <div class="doc">
+            <p class="byline">
+              Satvik Bhasin &middot; AIML-500: Machine Learning Fundamentals &middot; Workshop 4, Assignment 4.4
+            </p>
+
+            <h4>Personal Value Statement</h4>
+            <p>
+              Suppose your platform team ships a new internal tool that recommends which pull requests get
+              reviewed first. Six months in, someone notices the same three senior engineers keep landing at the
+              top of the queue, every time. Nobody wrote a rule that says "favor these three people." The
+              training data just happened to reflect who'd historically gotten fast reviews, and the model
+              learned that pattern and repeated it back, faster and more confidently than any human ever could.
+            </p>
+            <p>
+              That's the version of bias I actually run into: not a single bad actor with bad intentions, but a
+              system quietly reinforcing whatever pattern was already sitting in the data. As a platform engineer
+              working on AI and ML adoption, my core value here is that the systems I help build should be
+              checked, not trusted by default. Trust is something a system earns by being tested against reality,
+              not something it gets for being built well or scoring well on a benchmark.
+            </p>
+
+            <h4>Strategies for My Field</h4>
+            <p>
+              First, treat training data like a code dependency instead of a black box. Engineers already know to
+              audit a new library before pulling it into production: what it does, where it came from, what
+              could go wrong. Training data rarely gets that same scrutiny, mostly because it feels like an input
+              rather than a component you're choosing to depend on. Before a model ships, someone on the team
+              should be able to answer where the data came from, who's underrepresented in it, and what happens
+              to the people it doesn't reflect well.
+            </p>
+            <p>
+              Second, the bias check has to live in the pipeline, not in a one-time review. Models get retrained.
+              Data drifts. A fairness check run once at launch tells you nothing about the system six months
+              later, once the underlying data has shifted and nobody was watching. The teams I've seen handle
+              this well treat a fairness audit the way they'd treat a security scan: automated, recurring, and
+              loud when it crosses a threshold, not a box checked once at launch and forgotten.
+            </p>
+            <p>
+              Third, make the review room bigger before the model ships, not after a complaint shows up. Someone
+              in a wider review room has usually been on the losing end of a pattern like the PR queue example
+              above, and recognizes the shape of it immediately. Waiting for a formal complaint means you're
+              fixing a system that already caused harm. Widening the review earlier means you catch it before
+              it's live.
+            </p>
+            <p>
+              Last, and this is the harder one: say "I don't know if this is fair yet" out loud, as the person
+              leading the rollout. There's real pressure right now, with AI moving this fast, to ship confidently
+              and iterate later. But a leader who admits a system hasn't been checked for bias yet, and holds the
+              launch until it has, does more for trust than one who projects certainty and gets it wrong. I'd
+              rather be the one who slowed a rollout down for a fairness pass than the one explaining to a team
+              why the system was quietly working against them.
+            </p>
+
+            <h4>Tools disclosure</h4>
+            <p>
+              Drafted with Claude (Anthropic), used to help structure and word the value statement and strategies
+              above. Iterated over a few passes; the perspective and strategies are mine, refined through the
+              conversation.
+            </p>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <div style="height: 28px;"></div>
+
     <div class="coming-soon">
       Additional artifacts from future workshops will be added here as the course progresses. This portfolio
       requires at least five artifacts by the end of the course.
